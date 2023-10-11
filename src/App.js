@@ -3,19 +3,22 @@ import SearchResults from './components/searchResults/searchResults';
 import data from "./testData.json"
 import Playlist from './components/playlist/playlist';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
   const [playlist, setPlaylist] = useState([])
 
   const addTrackToPlaylist = (track) => {
-    const newTrack = { ...track, id: Date.now() };
+    const newTrack = { ...track, id: uuidv4() };
     setPlaylist((prev) => [...prev, newTrack])
   }
 
   const removeTrackFromPlaylist = (track) => {
     setPlaylist((prev) => prev.filter((t) => t.id !== track.id))
   }
+
+  const [playlistName, setPlaylistName] = useState("")
 
   return (
     <div className="App">
@@ -25,10 +28,17 @@ function App() {
           onClickFunction={addTrackToPlaylist}
           tracks={data}
         />
-        <h2>Playlist</h2>
+        <h2>
+          <input 
+            className='playlistName'
+            value={playlistName}
+            onChange={(({target}) => setPlaylistName(target.value))}
+          />
+        </h2>
         <Playlist
           tracks={playlist}
           onClickFunction={removeTrackFromPlaylist}
+          playlistName={playlistName}
         />
       </header>
     </div>

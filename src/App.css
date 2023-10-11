@@ -19,3 +19,15 @@ html {
     background-color: rgba(0, 0, 0, 0.088);
     border-radius: 10px;
 }
+
+.App .playlistName {
+    background: none;
+    border: none;
+    font-size: larger;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.App .playlistName:focus {
+    outline: none;
+}
