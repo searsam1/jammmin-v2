@@ -1,0 +1,7 @@
+
+.searchResults {
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 .5rem 1rem rgba(10, 238, 26, 0.15);
+    border-radius: 10px;
+}

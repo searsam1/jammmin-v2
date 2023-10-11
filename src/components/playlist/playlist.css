@@ -1,0 +1,7 @@
+
+.playlist {
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 .5rem 1rem rgba(171, 4, 255, 0.15);
+    border-radius: 10px;
+}

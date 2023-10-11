@@ -1,0 +1,33 @@
+
+[
+    {
+      "id": 1,
+      "songName": "Blinding Lights",
+      "artist": "The Weeknd",
+      "album": "After Hours"
+    },
+    {
+      "id": 2,
+      "songName": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "album": "Fine Line"
+    },
+    {
+      "id": 3,
+      "songName": "Levitating",
+      "artist": "Dua Lipa",
+      "album": "Future Nostalgia"
+    },
+    {
+      "id": 4,
+      "songName": "Peaches",
+      "artist": "Justin Bieber",
+      "album": "Justice"
+    },
+    {
+      "id": 5,
+      "songName": "Save Your Tears",
+      "artist": "The Weeknd",
+      "album": "After Hours"
+    }
+  ]
