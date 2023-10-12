@@ -5,7 +5,7 @@ function TrackList(props) {
     const { tracks, onClickFunction } = props
     return (
         <>{
-            tracks.map(({ id, songName, artist, album }) =>
+            tracks.map(({ id, songName, artist, album, uri }) =>
             (<li
                 className="tracks"
                 key={id}>
@@ -15,6 +15,7 @@ function TrackList(props) {
                     artist={artist}
                     album={album}
                     onClickFunction={onClickFunction}
+                    uri={uri}
                 />
             </li>)
             )

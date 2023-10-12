@@ -31,3 +31,20 @@ html {
 .App .playlistName:focus {
     outline: none;
 }
+
+.App .saveToSpotify {
+    text-align: center;
+}
+
+.App .saveToSpotify button {
+    background: black;
+    border: none;
+    font-size: larger;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(3, 233, 237);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}

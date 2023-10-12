@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-
   const [playlist, setPlaylist] = useState([])
 
   const addTrackToPlaylist = (track) => {
@@ -20,6 +19,20 @@ function App() {
 
   const [playlistName, setPlaylistName] = useState("")
 
+  const saveToSpotify = (e) => {
+    e.preventDefault();
+
+    // Generate an array of track URIs
+    const trackURIs = playlist.map(track => track.uri);
+    console.log(trackURIs);
+
+    // TODO: Use the Spotify API to save the playlist
+
+    // Reset the existing playlist
+    setPlaylist([]);
+    setPlaylistName("");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -29,10 +42,10 @@ function App() {
           tracks={data}
         />
         <h2>
-          <input 
+          <input
             className='playlistName'
             value={playlistName}
-            onChange={(({target}) => setPlaylistName(target.value))}
+            onChange={(({ target }) => setPlaylistName(target.value))}
           />
         </h2>
         <Playlist
@@ -40,9 +53,13 @@ function App() {
           onClickFunction={removeTrackFromPlaylist}
           playlistName={playlistName}
         />
+        <form className='saveToSpotify' onSubmit={saveToSpotify}>
+          <button type="submit">Save to Spotify</button>
+        </form>
       </header>
     </div>
   );
 }
 
 export default App;
+

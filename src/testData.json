@@ -1,33 +1,37 @@
-
 [
-    {
-      "id": 1,
-      "songName": "Blinding Lights",
-      "artist": "The Weeknd",
-      "album": "After Hours"
-    },
-    {
-      "id": 2,
-      "songName": "Watermelon Sugar",
-      "artist": "Harry Styles",
-      "album": "Fine Line"
-    },
-    {
-      "id": 3,
-      "songName": "Levitating",
-      "artist": "Dua Lipa",
-      "album": "Future Nostalgia"
-    },
-    {
-      "id": 4,
-      "songName": "Peaches",
-      "artist": "Justin Bieber",
-      "album": "Justice"
-    },
-    {
-      "id": 5,
-      "songName": "Save Your Tears",
-      "artist": "The Weeknd",
-      "album": "After Hours"
-    }
-  ]
+  {
+    "id": 1,
+    "songName": "Blinding Lights",
+    "artist": "The Weeknd",
+    "album": "After Hours",
+    "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b"
+  },
+  {
+    "id": 2,
+    "songName": "Watermelon Sugar",
+    "artist": "Harry Styles",
+    "album": "Fine Line",
+    "uri": "spotify:track:6UelLqGlWMcVH1E5c4H7lY"
+  },
+  {
+    "id": 3,
+    "songName": "Levitating",
+    "artist": "Dua Lipa",
+    "album": "Future Nostalgia",
+    "uri": "spotify:track:5nujrmhLynf4yMoMtj8AQF"
+  },
+  {
+    "id": 4,
+    "songName": "Peaches",
+    "artist": "Justin Bieber",
+    "album": "Justice",
+    "uri": "spotify:track:4iJyoBOLtHqaGxP12qzhQI"
+  },
+  {
+    "id": 5,
+    "songName": "Save Your Tears",
+    "artist": "The Weeknd",
+    "album": "After Hours",
+    "uri": "spotify:track:5QO79kh1waicV47BqGRL3g"
+  }
+]
