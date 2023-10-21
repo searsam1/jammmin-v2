@@ -15,7 +15,11 @@ function Track(props) {
       <p
         className="track"
         onClick={handleClick}>
-        {songName} - {artist} ({album})
+        {songName} <br />
+        <span
+          className="artistAndAlbum">
+          {artist} | {album}
+        </span>
       </p>
     </>
   );

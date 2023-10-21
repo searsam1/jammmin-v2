@@ -1,11 +1,23 @@
 .track {
-    background: linear-gradient(45deg,
-            rgba(5, 252, 116, 0.533),
-            rgba(5, 252, 116, 0.79));
+    border-right: 1px solid rgb(0, 0, 0);
+    
     color: black;
     padding: 10px;
-    border-radius: 10px;
     /* font-family: 'Caveat', cursive; */
     font-family: 'Nunito', sans-serif;
     /* font-family: 'Quicksand', sans-serif; */
+    transition: background-color .5s;
+}
+
+.track:hover{
+    background-color: rgb(230, 0, 255);
+    transition: background-color 1s;
+}
+
+.artistAndAlbum {
+    border-top: 1px solid rgba(33, 0, 33, 0.818);
+    color: rgba(33, 0, 33, 0.818);
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
 }

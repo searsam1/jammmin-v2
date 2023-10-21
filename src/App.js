@@ -64,13 +64,18 @@ function App() {
   }
 
   // Function to search Spotify for tracks based on the search query
-  const searchSpotify = () => {
+  function searchSpotify() {
     getAccessToken();
 
     if (token && searchQuery.trim() !== '') {
       Spotify.searchTracks(searchQuery, token)
         .then(tracks => {
-          setTracks(tracks);
+          // Filter tracks that are not in the playlist
+          const filteredTracks = tracks.filter(track => {
+            return !playlist.some(playlistTrack => playlistTrack.id === track.id);
+          });
+
+          setTracks(filteredTracks);
         })
         .catch(error => {
           console.error(error);

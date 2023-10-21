@@ -35,6 +35,8 @@ const Spotify = {
       })
       .then(data => {
         const tracks = data.tracks.items;
+        const nextPage = data.tracks.next;
+        console.log(nextPage)
         return tracks;
       })
       .catch(error => {

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Design Document For Jammmin</title>
+</head>
+
+<body>
+    <h1>Design Document Template</h1>
+    <h2>October 21, 2023</h2>
+
+    <h3>OBJECTIVE</h3>
+    <p>
+        Show only the songs in the search results that are
+        not already included in the playlist.
+    </p>
+
+    <h3>BACKGROUND</h3>
+    <p>
+        This feature is crucial as it prevents users from accidentally adding the same song to a playlist multiple times
+        during a search. This enhances the app's usability, making it more efficient and user-friendly by assuming that
+        users don't want to see tracks they've already added to the playlist.
+    </p>
+
+    <p>
+        Time-saving is an essential aspect of this feature. By streamlining the playlist creation process, the app helps
+        users create playlists that match their musical preferences more easily and quickly.
+    </p>
+
+    <p>
+        For instance, if a user already has songs in their playlist and performs a different search to find new tracks,
+        displaying songs that are already in the playlist in the search results is redundant and unnecessary.
+    </p>
+
+    <h3>TECHNICAL DESIGN</h3>
+    <p>
+        After getting the tracks from spotify, map over them and 
+        only display ones not in the playlist already. Do this by using 
+        the track ids or uris. 
+    </p>
+    <p>
+        The .filter method is suitable here, and not .map, because 
+        we are filtering out the songs that have already been added 
+        to the playlist. 
+    </p>
+
+    <h3>CAVEATS</h3>
+    <p>
+
+        The optimal scenario would involve the Spotify API providing a feature to filter out specific songs from the search results.
+        A challenge emerges when the playlist contains a substantial number of songs, resulting in users being unable to view any tracks or only a limited number.
+        A potential workaround is to surpass the default limit of 20 results and raise it to the maximum of 50. However, this approach doesn't fully address the problem.
+    </p>
+    <p>
+        The Spotify API does, however, offer a next URL in the response, which 
+        does offer potential solutions. 
+    </p>
+</body>
+
+</html>
