@@ -7,7 +7,7 @@ import "./playlist.css";
 function Playlist(props) {
     // Destructuring the props to extract the needed data
     const { tracks, onClickFunction, playlistName } = props;
-
+    console.log(playlistName)
     // If tracks are provided, render the TrackList component with the tracks and the onClickFunction
     if (tracks) {
         return (
