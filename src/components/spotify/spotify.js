@@ -1,5 +1,5 @@
 const clientId = '7e5e326aa2c7430baf87da02c59acbbb';
-const redirectUri = 'https://eclectic-crisp-b9decf.netlify.app/callback';
+const redirectUri = 'https://eclectic-crisp-b9decf.netlify.app';
 
 const Spotify = {
   // Function to initiate Spotify's Authorization Code Flow
