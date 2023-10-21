@@ -1,0 +1,11 @@
+.track {
+    background: linear-gradient(45deg,
+            rgba(5, 252, 116, 0.533),
+            rgba(5, 252, 116, 0.79));
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    /* font-family: 'Caveat', cursive; */
+    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Quicksand', sans-serif; */
+}

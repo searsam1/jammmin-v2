@@ -1,7 +1,21 @@
-
 .searchResults {
     text-align: center;
     padding: 10px;
     box-shadow: 0 .5rem 1rem rgba(10, 238, 26, 0.15);
     border-radius: 10px;
+    flex: 1;
+    max-width: 300px;
+    max-height: 500px;
+    min-width: 300px;
+    min-height: 500px;
+    overflow-y: scroll;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+    background: linear-gradient(45deg,
+            rgba(93, 0, 255, 0.841),
+            rgb(166, 0, 255));
+    color: rgb(11, 0, 2);
+}
+
+.searchResults::-webkit-scrollbar {
+    display: none;
 }

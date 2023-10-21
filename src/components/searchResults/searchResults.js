@@ -5,6 +5,7 @@ function SearchResults(props) {
     const {tracks, onClickFunction} = props
     return (
         <div className="searchResults">
+            Search Results
             <TrackList 
             tracks={tracks}
             onClickFunction={onClickFunction}

@@ -1,0 +1,19 @@
+[
+    "album",
+    "artists",
+    "available_markets",
+    "disc_number",
+    "duration_ms",
+    "explicit",
+    "external_ids",
+    "external_urls",
+    "href",
+    "id",
+    "is_local",
+    "name",
+    "popularity",
+    "preview_url",
+    "track_number",
+    "type",
+    "uri"
+]

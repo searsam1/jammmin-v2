@@ -1,65 +1,127 @@
 import './App.css';
 import SearchResults from './components/searchResults/searchResults';
-import data from "./testData.json"
 import Playlist from './components/playlist/playlist';
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import Spotify from './components/spotify/spotify';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [playlist, setPlaylist] = useState([])
+  const [playlistName, setPlaylistName] = useState("Playlist Name")
+  const [tracks, setTracks] = useState([])
+  const [searchQuery, setsSearchQuery] = useState("Drake")
+  const [token, setToken] = useState(null)
+
 
   const addTrackToPlaylist = (track) => {
-    const newTrack = { ...track, id: uuidv4() };
-    setPlaylist((prev) => [...prev, newTrack])
-  }
+    if (playlist.includes(track)) {
+      return
+    }
+    setPlaylist((prev) => [...prev, track]);
+  };
 
   const removeTrackFromPlaylist = (track) => {
     setPlaylist((prev) => prev.filter((t) => t.id !== track.id))
   }
 
-  const [playlistName, setPlaylistName] = useState("")
-
   const saveToSpotify = (e) => {
     e.preventDefault();
-
-    // Generate an array of track URIs
     const trackURIs = playlist.map(track => track.uri);
-    console.log(trackURIs);
-
-    // TODO: Use the Spotify API to save the playlist
-
-    // Reset the existing playlist
+    alert(trackURIs)
     setPlaylist([]);
     setPlaylistName("");
   }
+  function getAccessToken() {
+    if (!token) {
+      Spotify.authorizeAccessToken();
+    }
+  }
+
+
+  function searchSpotify() {
+    getAccessToken()
+    if (token) {
+      Spotify.searchTracks(searchQuery, token)
+        .then(tracks => {
+          setTracks(tracks)
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    setsSearchQuery('')
+  }
+
+  useEffect(() => {
+    const accessToken = Spotify.getAccessTokenFromUrl();
+
+    if (accessToken) {
+      setToken(accessToken);
+
+      // Remove the access token from the URL
+      window.history.replaceState(null, null, window.location.pathname);
+    }
+  }, []);
+
+
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>SearchResults</h2>
-        <SearchResults
-          onClickFunction={addTrackToPlaylist}
-          tracks={data}
-        />
-        <h2>
-          <input
-            className='playlistName'
-            value={playlistName}
-            onChange={(({ target }) => setPlaylistName(target.value))}
+    <>
+      <div className='searchDiv'>
+        <input
+          value={searchQuery}
+          className='searchBar'
+          onChange={({ target }) =>
+            setsSearchQuery(target.value)} />
+        <button
+          disabled={token ? false : true}
+          className='searchSpotifyBtn'
+          onClick={() => searchSpotify()}>
+          Search Spotify
+        </button>
+        <button
+          disabled={token ? true : false}
+          className='searchSpotifyBtn'
+          onClick={() =>
+            getAccessToken()}>
+          {token ? "Logged In" : "Log in to Spotify"}
+        </button>
+      </div>
+      <div className="App">
+        <div>
+          <p className='h2'>Search Results</p>
+
+          {tracks.length > 0 && (
+            <SearchResults
+              tracks={tracks}
+              onClickFunction={addTrackToPlaylist} />
+          )}
+        </div>
+        <div>
+          <center>
+            <input
+              onChange={({ target }) => setPlaylistName(target.value)}
+              placeholder={playlistName} className='h2'
+            />
+          </center>
+          <Playlist
+            tracks={playlist}
+            onClickFunction={removeTrackFromPlaylist}
+            playlistName={playlistName}
           />
-        </h2>
-        <Playlist
-          tracks={playlist}
-          onClickFunction={removeTrackFromPlaylist}
-          playlistName={playlistName}
-        />
-        <form className='saveToSpotify' onSubmit={saveToSpotify}>
-          <button type="submit">Save to Spotify</button>
+        </div>
+
+      </div>
+      <center>
+        <form onSubmit={saveToSpotify}>
+          <button
+            type='submit'
+            className='saveToSpotifyBtn'>
+            Save Playlist To Spotify
+          </button>
         </form>
-      </header>
-    </div>
+      </center>
+    </>
   );
 }
 
 export default App;
-

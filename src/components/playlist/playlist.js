@@ -6,8 +6,7 @@ function Playlist(props) {
     if (tracks) {
         return (
             <div className="playlist">
-                {playlistName}
-                <TrackList
+                <TrackList 
                     tracks={tracks}
                     onClickFunction={onClickFunction}
                 />
@@ -16,7 +15,5 @@ function Playlist(props) {
     }
     return null;
 }
-
-
 
 export default Playlist
